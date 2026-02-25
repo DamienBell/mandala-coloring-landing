@@ -1,0 +1,9 @@
+name: mandala-coloring-landing
+static_sites:
+  - name: web
+    environment_slug: html
+    source_dir: /
+    github:
+      repo: DamienBell/mandala-coloring-landing
+      branch: main
+      deploy_on_push: true
