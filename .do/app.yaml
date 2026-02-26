@@ -7,3 +7,18 @@ static_sites:
       repo: DamienBell/mandala-coloring-landing
       branch: main
       deploy_on_push: true
+ingress:
+  rules:
+    # /m/* → serve m/index.html (catch-all for Universal Link landing pages)
+    - match:
+        path:
+          prefix: /m/
+      component:
+        name: web
+        rewrite: /m/index.html
+    # Default: serve all other paths (/, /.well-known/, /assets/, etc.) as-is
+    - match:
+        path:
+          prefix: /
+      component:
+        name: web
